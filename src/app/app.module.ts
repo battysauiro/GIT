@@ -9,6 +9,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { NavigableListItemDirective } from '../navigable-list-item.directive';
+import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.component';
 //import { FlexLayoutModule } from '@angular/';
 
 
@@ -17,7 +18,7 @@ import { NavigableListItemDirective } from '../navigable-list-item.directive';
   declarations: [
     AppComponent,
     SidebarComponent,
-    FooterComponent,NavigableListItemDirective
+    FooterComponent,NavigableListItemDirective, VistasPagosComponent
   ],
   imports: [
     BrowserModule,
