@@ -13,7 +13,6 @@ import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.com
 //import { FlexLayoutModule } from '@angular/';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
