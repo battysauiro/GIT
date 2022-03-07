@@ -28,7 +28,7 @@
                 </mat-panel-title>
                 
             </mat-expansion-panel-header>
-            <mat-nav-list>
+            <mat-nav-list> 
                     <ng-container *ngFor="let subCategory of nav.subCategory" >
                         <ng-container *ngIf="subCategory.visable" > <!--Sub category list-->
                             <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" [navSelected]="subCategory.subCategoryName == selected"
