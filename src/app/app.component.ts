@@ -1,6 +1,9 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import {Router} from "@angular/router";
 import {MatAccordion} from '@angular/material/expansion';
+import { TipoContribucionService } from './servicio/tipo-contribucion.service';
+import { TipoContribucion } from './modelo/tipo-contribucion';
+import { ContribucionService } from './servicio/contribucion.service';
 
 @Component({
   selector: 'app-root',
@@ -19,32 +22,34 @@ export class AppComponent implements OnInit{
     name = 'Angular';
     selected?: string = undefined;
     navList: NavList[];
-
+    tipoContribuciones:TipoContribucion[];
+    contribucionesPT:String[];
     constructor(public ngZone:NgZone,
-                public route: Router,)
+                public route: Router,private tipoContribucionServicio:TipoContribucionService,
+                private contribucionServicio:ContribucionService)
     {
         this.navList = [
-            { categoryName: 'Tipo 1', icon: 'face', dropDown:false,
-                subCategory:
+            { nombre: 'Tipo 1', dropDown:false,
+            subCategoria:
                     [
-                        { subCategoryName: 'Item 1', subCategoryLink:'/link', subCategoryQuery: {title: 'query item 1'}, visable: true, },
-                        { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
-                        { subCategoryName: 'Item 3', subCategoryLink:'/link1', visable: true, },
+                        { subCategoriaNombre: 'Item 1', visable: true },
+                        { subCategoriaNombre: 'Item 2', visable: true },
+                        { subCategoriaNombre: 'Item 3', visable: true },
                     ]
             },
-            { categoryName: 'Tab 2', icon: 'question_answer', dropDown:false,
-                subCategory:
+            { nombre: 'Tab 2', dropDown:false,
+            subCategoria:
                     [
-                        { subCategoryName: 'Item 1', subCategoryLink:'/link1', visable: true, },
-                        { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
-                        { subCategoryName: 'Item 3', subCategoryLink:'/link1', visable: true, },
+                        { subCategoriaNombre: 'Item 1', visable: true },
+                        { subCategoriaNombre: 'Item 2', visable: true },
+                        { subCategoriaNombre: 'Item 3', visable: true },
                     ]
             },
-            { categoryName: 'Tab 3', icon: 'work', dropDown:false,
-                subCategory:
+            { nombre: 'Tab 3', dropDown:false,
+            subCategoria:
                     [
-                        { subCategoryName: 'Item 1', subCategoryLink:'/link1', visable: true, },
-                        { subCategoryName: 'Item 2', subCategoryLink:'/link1', visable: true, },
+                        { subCategoriaNombre: 'Item 1', visable: true },
+                        { subCategoriaNombre: 'Item 2', visable: true },
                     ]
             },
         ];
@@ -61,9 +66,30 @@ export class AppComponent implements OnInit{
     }
 
     ngOnInit() {
-
+        this.obtenerTiposContribucion();
+        this.RellenarArreglo();
     }
 
+    private obtenerTiposContribucion(){
+        this.tipoContribucionServicio.obtenerListaTipoContribucion().subscribe(dato=> {
+            this.tipoContribuciones =dato;
+        }); 
+        console.log(this.tipoContribuciones);
+    }
+
+    private obtenerContribucionPorTipo(id:String){
+        this.contribucionServicio.obtenerContribucionPorTipo(id).subscribe(dato=>{
+            this.contribucionesPT=dato;
+            
+        });
+    }
+
+    private  RellenarArreglo(){
+        this.tipoContribucionServicio.obtenerListaTipoContribucion().subscribe(dato=> {
+            
+        }); 
+        
+    }
     changeMode() {
       this.width = window.innerWidth;
       this.height = window.innerHeight;
@@ -80,21 +106,17 @@ export class AppComponent implements OnInit{
 }
 
 export class NavList {
-    categoryName: string;
-    icon: string;
+    nombre: string;
     dropDown: boolean;
-    subCategory: NavListItem[];
-    constructor(_categoryName:string,_icon:string,_dropDown:boolean,_subCategory:NavListItem[]) {
-        this.categoryName = _categoryName;
-        this.icon = _icon;
+    subCategoria: NavListItem[];
+    constructor(_categoryName:string,_dropDown:boolean,_subCategory:NavListItem[]) {
+        this.nombre = _categoryName;
         this.dropDown = _dropDown;
-        this.subCategory = _subCategory;
+        this.subCategoria = _subCategory;
     }
 }
 
 export class NavListItem {
-    subCategoryName: string;
-    subCategoryLink: string;
-    subCategoryQuery?: any;
+    subCategoriaNombre: string;
     visable: boolean;
 }
