@@ -12,31 +12,31 @@
       <mat-icon aria-hidden="true">notifications</mat-icon>
   </button>
 
-</mat-toolbar>
+</mat-toolbar>  
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="40" mode="side" fixedInViewport="true" style="width:240px;">
     <mat-accordion multi="false" >
-      <ng-container *ngFor="let nav of navList">
+      <ng-container *ngFor="let tipoContribucion of tipoContribuciones">
         
           <mat-expansion-panel  class="mat-elevation-z0 mat-list-sidenav "   hideToggle >
             <mat-expansion-panel-header >
             
                   <mat-panel-title class='my-expansion-panel-header'>
-                    <mat-icon mat-list-icon>{{nav.icon}}</mat-icon>
-                    <span >{{nav.categoryName}}</span>
+                    <mat-icon mat-list-icon>list</mat-icon>
+                    <span >{{tipoContribucion.nombreTipoContribucion}}</span>
                 </mat-panel-title>
                 
             </mat-expansion-panel-header>
             <mat-nav-list> 
-                    <ng-container *ngFor="let subCategory of nav.subCategory" >
-                        <ng-container *ngIf="subCategory.visable" > <!--Sub category list-->
-                            <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" [navSelected]="subCategory.subCategoryName == selected"
-                             [appNavigableListItem]="subCategory.subCategoryName" >
-                                <span   mat-line >{{subCategory.subCategoryName}}</span>
+                 <!--  <ng-container *ngFor="let subCategoria of nav.subCategoria" >
+                        <ng-container *ngIf="subCategoria.visable" > <!--Sub category list
+                            <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" routerLink="pagoContribucion" [navSelected]="subCategoria.subCategoriaNombre == selected"
+                             [appNavigableListItem]="subCategoria.subCategoriaNombre" >
+                                <span   mat-line >{{subCategoria.subCategoriaNombre}}</span>
                             </mat-list-item>
                         </ng-container>
-                    </ng-container>
+                    </ng-container>  -->
             </mat-nav-list>
         </mat-expansion-panel>
         
@@ -45,6 +45,6 @@
     </mat-accordion>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-vistas-pagos></app-vistas-pagos>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

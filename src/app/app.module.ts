@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { NavigableListItemDirective } from '../navigable-list-item.directive';
 import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.component';
+import { HttpClientModule } from '@angular/common/http';
 //import { FlexLayoutModule } from '@angular/';
 
 
@@ -25,8 +26,8 @@ import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.com
     BrowserAnimationsModule,
     MatSidenavModule,
     FormsModule, 
-    MaterialModule
-    
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
