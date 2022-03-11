@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { NavigableListItemDirective } from '../navigable-list-item.directive';
 import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.component';
+import { HeaderComponent } from './layout/header/header.component';
 //import { FlexLayoutModule } from '@angular/';
 
 
@@ -17,7 +18,7 @@ import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.com
   declarations: [
     AppComponent,
     SidebarComponent,
-    FooterComponent,NavigableListItemDirective, VistasPagosComponent
+    FooterComponent,NavigableListItemDirective, VistasPagosComponent, HeaderComponent
   ],
   imports: [
     BrowserModule,

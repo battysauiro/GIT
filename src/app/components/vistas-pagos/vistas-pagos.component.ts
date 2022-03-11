@@ -2,6 +2,12 @@ import {Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from  '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper' ;
 
+/** 
+interface Animal {
+  name: string;
+  sound: string;
+}*/
+
 @Component({
   selector: 'app-vistas-pagos',
   templateUrl: './vistas-pagos.component.html',
@@ -28,4 +34,14 @@ export class VistasPagosComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
   }
+
+  /**
+  animalControl = new FormControl('', Validators.required);
+  selectFormControl = new FormControl('', Validators.required);
+  animals: Animal[] = [
+    {name: 'Dog', sound: 'Woof!'},
+    {name: 'Cat', sound: 'Meow!'},
+    {name: 'Cow', sound: 'Moo!'},
+    {name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!'},
+  ];*/
 }
