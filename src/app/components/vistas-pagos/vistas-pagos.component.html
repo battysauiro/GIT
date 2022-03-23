@@ -1,48 +1,51 @@
 <p>vistas-pagos works!</p>
 <h1 class="color">esto funciona </h1>
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
 
-<mat-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+<!--
+<div height="800px" class="stepper" id="stepper2">
+  <div class="steps-container">
+    <div class="steps">
+      <div class="step" icon="fa fa-pencil-alt" id="1"></div>
+      <div class="step" icon="fa fa-pencil-alt" id="2"></div>
+      <div class="step" icon="fa fa-pencil-alt" id="3"></div>
+      <div class="step" icon="fa fa-pencil-alt" id="4"></div>
     </div>
-  </mat-step>
-</mat-stepper>
+  </div>
+  <div class="stepper-content-container">
+    <div class="stepper-content fade-in" stepper-label="1">
+      <div>Step 1</div>
+    </div>
+    <div class="stepper-content fade-in" stepper-label="2">
+      <div>Step 2</div>
+    </div>
+    <div class="stepper-content fade-in" stepper-label="3">
+      <div>Step 3</div>
+    </div>
+    <div class="stepper-content fade-in" stepper-label="4">
+      <div>Step 4</div>
+    </div>
+  </div>
+</div>
+-->
 
-<mat-tab-group mat-align-tabs="center">
-  <mat-tab label="First" >Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
-</mat-tab-group>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+
+<div class="container">
+  <br>
+  <div>
+    
+  </div>
+</div>
