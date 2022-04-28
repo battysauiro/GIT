@@ -10,7 +10,7 @@ describe('VistasPagosComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ VistasPagosComponent ]
     })
-    .compileComponents();
+    .compileComponents(); 
   });
 
   beforeEach(() => {

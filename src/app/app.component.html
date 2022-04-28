@@ -17,26 +17,26 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav class="mat-elevation-z10" #start [opened]="open" fixedTopGap="40" mode="side" fixedInViewport="true" style="width:240px;">
     <mat-accordion multi="false" >
-      <ng-container *ngFor="let tipoContribucion of tipoContribuciones">
+      <ng-container *ngFor="let dato of navList">
         
           <mat-expansion-panel  class="mat-elevation-z0 mat-list-sidenav "   hideToggle >
             <mat-expansion-panel-header >
             
                   <mat-panel-title class='my-expansion-panel-header'>
                     <mat-icon mat-list-icon>list</mat-icon>
-                    <span >{{tipoContribucion.nombreTipoContribucion}}</span>
+                    <span >{{dato.nombre}}</span>
                 </mat-panel-title>
                 
             </mat-expansion-panel-header>
             <mat-nav-list> 
-                 <!--  <ng-container *ngFor="let subCategoria of nav.subCategoria" >
-                        <ng-container *ngIf="subCategoria.visable" > <!--Sub category list
+                 <!--<ng-container *ngFor="let subCategoria of nav.subCategoria" >
+                        <ng-container *ngIf="subCategoria.visable" > Sub category list
                             <mat-list-item (click)="mode === 'over'? start.close() : null" routerLinkActive="mat-icon-active" routerLink="pagoContribucion" [navSelected]="subCategoria.subCategoriaNombre == selected"
                              [appNavigableListItem]="subCategoria.subCategoriaNombre" >
                                 <span   mat-line >{{subCategoria.subCategoriaNombre}}</span>
                             </mat-list-item>
                         </ng-container>
-                    </ng-container>  -->
+                    </ng-container>-->
             </mat-nav-list>
         </mat-expansion-panel>
         
@@ -45,6 +45,7 @@
     </mat-accordion>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <!--<router-outlet></router-outlet>-->
+    <app-vistas-pagos></app-vistas-pagos>
   </mat-sidenav-content>
 </mat-sidenav-container>

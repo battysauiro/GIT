@@ -1,48 +1,105 @@
-<p>vistas-pagos works!</p>
-<h1 class="color">esto funciona </h1>
-<button mat-raised-button (click)="isEditable = !isEditable">
-  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
-</button>
+<form action="#">
+  <div class="bwizard clearfix">
+    <ol class="bwizard-steps d-flex step-own" role="tablist" style="color: black;">
+      <li role="tab" id="level_0">
+        <span class="hidden-phone">"seleccionar el concepto"</span> 
+      </li>
+      <li role="tab" id="level_1">
+        <span>"seleccionar el contribuyente"</span> 
+      </li>
+      <li role="tab" id="level_2">
+        <span>"descargar formato"</span>
+      </li>
+    </ol>
+    <div class="well">
+      <div class="wizard-step-1" id="step1" role="tabpanel">
+        <div class="form-group">
+          <label for="contribucion" class="form-label" style="color: black;">Contribucion:</label>
+          <input class="form-control" list="browsers" name="contribucion" id="contribucion" placeholder="eliga opcion">
+          <datalist id="browsers">
+            <option value="001 IMPUESTOS">
+            <option value="002 DERECHOS">
+            <option value="003 PRODUCTO">
+            <option value="004 APROVECHAMIENTOS">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="tipos" class="form-label" style="color: black;">Tipo de contribucion:</label>
+          <input class="form-control" list="tipo" name="tipos" id="tipos" placeholder="eliga opcion">
+          <datalist id="tipo">
+            <option value="SOBRE TRASLADO Y DOMINIO">
+            <option value="POR METRO CUADRADO">
+            <option value="ALUMBRADO PUBLICO">
+            <option value="VINOS Y LICORES">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="concepto" class="form-label" style="color: black;">Concepto de contribucion:</label>
+          <input class="form-control" list="conceptos" name="concepto" id="concepto" placeholder="eliga opcion">
+          <datalist id="conceptos">
+            <option value="GENERAL">
+            <option value="CONCESIONES Y PERMISOS">
+            <option value="REFRENDOS">
+            <option value="DESCARGA A GRANEL">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <label for="detalle" class="form-label" style="color: black;">Descripcion de contribucion:</label>
+          <input class="form-control" list="detalles" name="detalle" id="detalle" placeholder="eliga opcion">
+          <datalist id="detalles">
+            <option value="IMPUESTO PREDIAL">
+            <option value="HABITACION RESIDENCIAL">
+            <option value="POR METRO CUADRADO">
+            <option value="ELECTRIFICACION">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <div class="col-md-2">
+            <label class="col-sm-12" style="color:black">Cantidad:</label>
+            <input type="text">
+          </div>
+          <div class="col-md-10">
+            <label class="col-sm-12" for="btn_agregar"></label>
+            <button type="button" class="btn btn-warning btn-sm">Agregar Concepto
+            </button>
+          </div>
+          <br>
+        </div>
+        <label style="color: black;">Presupuesto</label>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th class="cabecera_presupuesto" style="width: 3%;text-align: center;"></th>
+              <th class="cabecera_presupuesto" style="width: 10%;text-align: center;">CLAVE</th>
+              <th class="cabecera_presupuesto" style="width: 67%;text-align: center;">DESCRIPCION</th>
+              <th class="cabecera_presupuesto" style="width: 10%;text-align: center;">CANTIDAD</th>
+              <th class="cabecera_presupuesto" style="width: 10%;text-align: center;">IMPORTE</th>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-hover table-condensed"></table>
+        <table class="table table-hover" border="0">
+          <tbody>
+            <tr>
+              <td style="width: 75%"></td>
+              <td style="width: 10%;text-align: right;">
+                <b>Total:</b>
+              </td>
+              <td style="width: 15%;text-align: right;">
+                <input type="text">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="wizard-step-2 bwizard-activated" id="step2" role="tabpanel">
 
-<mat-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
-  </mat-step>
-</mat-stepper>
-
-<mat-tab-group mat-align-tabs="center">
-  <mat-tab label="First" >Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
-</mat-tab-group>
+    <ul class="pager bwizard-buttons">
+      <li class="next" role="button">
+        <a href="step2">siguiente -></a>
+      </li>
+    </ul>
+  </div>
+</form>

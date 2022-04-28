@@ -20,3 +20,11 @@
     color: #4910e5;
     opacity: 1.0;
 }
+
+.step-own li{
+  margin-right: 3rem;
+}
+
+.step-own li:hover{
+  background-color: aqua;
+}

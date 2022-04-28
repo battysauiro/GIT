@@ -12,6 +12,7 @@ import { NavigableListItemDirective } from '../navigable-list-item.directive';
 import { VistasPagosComponent } from './components/vistas-pagos/vistas-pagos.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 //import { FlexLayoutModule } from '@angular/';
 
 
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     SidebarComponent,
-    FooterComponent,NavigableListItemDirective, VistasPagosComponent, HeaderComponent
+    FooterComponent,NavigableListItemDirective, VistasPagosComponent, HeaderComponent, LoginComponent
   ],
   imports: [
     BrowserModule,

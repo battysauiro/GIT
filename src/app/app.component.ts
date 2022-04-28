@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
     height;
     mode:string = 'side';
     open = 'true';
-    title = 'Responsive Sidenav Starter';
+    title = 'IDS Administracion';
     @ViewChild(MatAccordion) accordion: MatAccordion;
     name = 'Angular';
     selected?: string = undefined;
@@ -29,27 +29,27 @@ export class AppComponent implements OnInit{
                 private contribucionServicio:ContribucionService)
     {
         this.navList = [
-            { nombre: 'Tipo 1', dropDown:false,
+            { nombre: 'AGREGAR EMPLEADO', dropDown:false,
             subCategoria:
                     [
-                        { subCategoriaNombre: 'Item 1', visable: true },
-                        { subCategoriaNombre: 'Item 2', visable: true },
-                        { subCategoriaNombre: 'Item 3', visable: true },
+                        //{ subCategoriaNombre: 'Item 1', visable: true },
+                        //{ subCategoriaNombre: 'Item 2', visable: true },
+                        //{ subCategoriaNombre: 'Item 3', visable: true },
                     ]
             },
-            { nombre: 'Tab 2', dropDown:false,
+            { nombre: 'AGREGAR CONTRIBUYENTE', dropDown:false,
             subCategoria:
                     [
-                        { subCategoriaNombre: 'Item 1', visable: true },
-                        { subCategoriaNombre: 'Item 2', visable: true },
-                        { subCategoriaNombre: 'Item 3', visable: true },
+                        //{ subCategoriaNombre: 'Item 1', visable: true },
+                        //{ subCategoriaNombre: 'Item 2', visable: true },
+                        //{ subCategoriaNombre: 'Item 3', visable: true },
                     ]
             },
-            { nombre: 'Tab 3', dropDown:false,
+            { nombre: 'LISTAR CONTRIBUYENTES', dropDown:false,
             subCategoria:
                     [
-                        { subCategoriaNombre: 'Item 1', visable: true },
-                        { subCategoriaNombre: 'Item 2', visable: true },
+                        //{ subCategoriaNombre: 'Item 1', visable: true },
+                        //{ subCategoriaNombre: 'Item 2', visable: true },
                     ]
             },
         ];
